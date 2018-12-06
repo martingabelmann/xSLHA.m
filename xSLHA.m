@@ -38,10 +38,10 @@ If[line===EndOfFile,
 	line=ToUpperCase[StringTrim[line]];
 	];
 If[StringTake[line,{1}]=="#",	Continue[]];
-If[separator=!=None,
+If[separator=!=None && StringLength[line]>=lenS,
 	If[StringTake[line,{1,lenS}]===separator,
 		xSLHA`flush;
-		spc=Flatten[{xSLHA`blocks,xSLHA`br,xSLHA`br1L,{{"WIDTH",xSLHA`widths}},{{"WIDTH1L",xSLHA`widths1L}},XS->xSLHA`xsections},1];
+		spc=Flatten[{xSLHA`blocks,xSLHA`br,xSLHA`br1L,{{WIDTH,xSLHA`widths}},{{WIDTH1L,xSLHA`widths1L}},XS->xSLHA`xsections},1];
 		spc=Flatten[MakeSubNum[spc]];
 		If[spc=!={},allFiles=Join[allFiles,{spc}]];
 		count++;
@@ -72,7 +72,7 @@ If[separator=!=None,
 xSLHA`Flush;
 Close[in];
 
-spc=Flatten[{xSLHA`blocks,xSLHA`br,xSLHA`br1L,{{"WIDTH",xSLHA`widths}},{{"WIDTH1L",xSLHA`widths1L}},XS->xSLHA`xsections},1];
+spc=Flatten[{xSLHA`blocks,xSLHA`br,xSLHA`br1L,{{WIDTH,xSLHA`widths}},{{WIDTH1L,xSLHA`widths1L}},XS->xSLHA`xsections},1];
 spc=Flatten[MakeSubNum[spc]];
 If[separator===None,
 Return[spc];,
@@ -159,7 +159,7 @@ xSLHA`Flush:=Block[{},
 
 xSLHA`StartBlock[line_]:=Block[{},
 xSLHA`entries={};
-xSLHA`blockName=line[[2]];
+xSLHA`blockName=ToExpression[line[[2]]];
 xSLHA`readingHBfermion=(xSLHA`blockName==="HIGGSBOUNDSINPUTHIGGSCOUPLINGSFERMIONS");
 xSLHA`readingHBscalar=(xSLHA`blockName==="HIGGSBOUNDSINPUTHIGGSCOUPLINGSBOSONS");
 {xSLHA`readingBlock,xSLHA`readingDecay,xSLHA`readingDecay1L, xSLHA`readingXsection}={True,False,False,False};
