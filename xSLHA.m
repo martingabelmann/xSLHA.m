@@ -10,7 +10,7 @@
 
 Off[General::spell];
 
-
+Print["xSLHA loaded"];
 Options[xSLHA`Read]={separator->None};
 
 xSLHA`Read[file_,options___]:=ReadSpectrumFile[file,separator/.{options}/.Options[xSLHA`Read]];

@@ -180,7 +180,7 @@ Cell[BoxData[
  CellLabel->"In[62]:=",ExpressionUUID->"c636ec64-23c9-429c-9d82-f7c49bfc8f3b"]
 },
 WindowSize->{808, 906},
-WindowMargins->{{Automatic, 555}, {49, Automatic}},
+WindowMargins->{{Automatic, 554}, {24, Automatic}},
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
 ]
