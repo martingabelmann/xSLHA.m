@@ -206,8 +206,8 @@ xSLHA`ReadSmallFunc[file_,entries_,sep_]:=Block[{string,i,out},
 xSLHA`ReadDir[file_,options___]:=xSLHA`ReadDirFunc[file,entries/.{options}/.Options[xSLHA`ReadSmall]];
 xSLHA`ReadDirFunc[dir_,entr_]:=Block[{out},
 	Run["rm temp_read_dir.spc"];
-	Run["cat "<>dir<>"/* > temp_read_dir.spc"];
-	out=xSLHA`ReadSmall["temp_read_dir.spc",entries->entr,separator->"BLOCK SPINFO"];
+	Run["tail -n+1 "<>dir<>"/* > temp_read_dir.spc"];
+	out=xSLHA`ReadSmall["temp_read_dir.spc",entries->entr,separator->"==>"];
 	Run["rm temp_read_dir.spc"];
 	Return[out];
 ];
