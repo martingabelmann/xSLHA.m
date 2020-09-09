@@ -35,7 +35,10 @@ While[True,
 line=ReadLine[in];
 If[line===EndOfFile,
 	Break[];,
-	line=ToUpperCase[StringTrim[line]];
+    line=StringReplace[line, "#"->" # "];
+    line=StringReplace[line, " " .. -> " "];
+    line=StringTrim[line];
+    line=ToUpperCase[line];
 	];
 If[StringTake[line,{1}]=="#",	Continue[]];
 If[separator=!=None && StringLength[line]>=lenS,
