@@ -160,8 +160,8 @@ xSLHA`Flush:=Block[{},
 xSLHA`StartBlock[line_]:=Block[{},
 xSLHA`entries={};
 xSLHA`blockName=ToExpression[line[[2]]];
-xSLHA`readingHBfermion=(xSLHA`blockName==="HIGGSBOUNDSINPUTHIGGSCOUPLINGSFERMIONS");
-xSLHA`readingHBscalar=(xSLHA`blockName==="HIGGSBOUNDSINPUTHIGGSCOUPLINGSBOSONS");
+xSLHA`readingHBfermion=(xSLHA`blockName===HIGGSBOUNDSINPUTHIGGSCOUPLINGSFERMIONS);
+xSLHA`readingHBscalar=(xSLHA`blockName===HIGGSBOUNDSINPUTHIGGSCOUPLINGSBOSONS);
 {xSLHA`readingBlock,xSLHA`readingDecay,xSLHA`readingDecay1L, xSLHA`readingXsection}={True,False,False,False};
 ];
 
